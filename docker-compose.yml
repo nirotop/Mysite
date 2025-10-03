@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  vue-app:
+    build: .
+    ports:
+      - "5173:5173"  # Маппинг порта: хост:контейнер
+    volumes:
+      - .:/app  # Монтируем текущую папку для hot-reload
+      - /app/node_modules  # Исключаем node_modules из монтирования (используем из контейнера)
+    stdin_open: true  # Для интерактивного режима
+    tty: true
