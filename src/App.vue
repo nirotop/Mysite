@@ -5,6 +5,10 @@ const cards = [
     description: 'Не профессиональная работа со звуком'
   },
   {
+    title: 'DevOps',
+    description: 'Автоматизация и инфраструктура'
+  },
+  {
     title: 'Network Administrator',
     description: 'Сетевые технологии и администрирование'
   }
@@ -14,6 +18,9 @@ const cards = [
 <template>
   <div class="business-card">
     <div class="header">
+      <div class="avatar">
+        <img src="https://i.ibb.co/p6qThd2s/photo-2025-09-27-21-43-32.jpg" alt="nirotop" />
+      </div>
       <h1 class="name">nirotop</h1>
       <p class="position">Junior Specialist</p>
     </div>
@@ -50,6 +57,34 @@ const cards = [
 
 .header {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid rgba(102, 126, 234, 0.3);
+  object-fit: cover;
+  filter: drop-shadow(0 8px 24px rgba(102, 126, 234, 0.4));
 }
 
 .name {
@@ -66,7 +101,7 @@ const cards = [
 .position {
   font-size: 1.5rem;
   margin: 16px 0 0 0;
-  color: #6089c2;
+  color: #94a3b8;
   font-weight: 500;
 }
 
@@ -80,7 +115,7 @@ const cards = [
 
 .card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
@@ -114,24 +149,6 @@ const cards = [
 }
 
 .twitch-button {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 20px 48px;
-  background: #9146ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(145, 70, 255, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.mail-button {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
