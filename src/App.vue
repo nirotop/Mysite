@@ -33,13 +33,31 @@ const cards = [
     </div>
 
     <div class="footer">
-      <a href="https://www.twitch.tv/nirotop" target="_blank" class="twitch-button">
-        <svg class="twitch-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
-        </svg>
-        Twitch
-        <span class="button-subtitle">Стримы и контент</span>
-      </a>
+      <div class="social-links">
+        <a href="https://www.twitch.tv/nirotop" target="_blank" class="social-button twitch-button">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/>
+          </svg>
+          Twitch
+          <span class="button-subtitle">Стримы и контент</span>
+        </a>
+
+        <a href="https://t.me/video_nirotop_bot" target="_blank" class="social-button telegram-button">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.198 2.433a1.5 1.5 0 0 1 1.841 1.822l-3.346 19.75a1.5 1.5 0 0 1-2.405 1.003L7.965 13.08a.5.5 0 0 1 .016-.805l7.91-4.982a.5.5 0 1 0-.587-.789L7.385 11.486 2.63 9.44a1.5 1.5 0 0 1-.457-2.513L20.195 1.52c.47-.345 1.003.04.003.913Z"/>
+          </svg>
+          Telegram Bot
+          <span class="button-subtitle">Для связи</span>
+        </a>
+
+        <a href="https://t.me/nirotopTwitch" target="_blank" class="social-button telegram-button personal">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21.198 2.433a1.5 1.5 0 0 1 1.841 1.822l-3.346 19.75a1.5 1.5 0 0 1-2.405 1.003L7.965 13.08a.5.5 0 0 1 .016-.805l7.91-4.982a.5.5 0 1 0-.587-.789L7.385 11.486 2.63 9.44a1.5 1.5 0 0 1-.457-2.513L20.195 1.52c.47-.345 1.003.04.003.913Z"/>
+          </svg>
+          Telegram
+          <span class="button-subtitle">Личный</span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -60,7 +78,7 @@ const cards = [
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
 }
 
 .avatar {
@@ -148,25 +166,31 @@ const cards = [
   margin-top: 16px;
 }
 
-.twitch-button {
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-button {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 20px 48px;
-  background: #9146ff;
+  padding: 16px 32px;
   color: white;
   text-decoration: none;
   border-radius: 12px;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(145, 70, 255, 0.3);
   position: relative;
   overflow: hidden;
 }
 
-.twitch-button::before {
+.social-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -177,24 +201,52 @@ const cards = [
   transition: left 0.5s;
 }
 
-.twitch-button:hover::before {
+.social-button:hover::before {
   left: 100%;
 }
 
-.twitch-button:hover {
+.social-button:hover {
   transform: translateY(-2px);
+}
+
+.twitch-button {
+  background: #9146ff;
+  box-shadow: 0 4px 16px rgba(145, 70, 255, 0.3);
+}
+
+.twitch-button:hover {
   box-shadow: 0 8px 24px rgba(145, 70, 255, 0.4);
   background: #7d3ddb;
 }
 
-.twitch-icon {
-  width: 28px;
-  height: 28px;
-  margin-bottom: 4px;
+.telegram-button {
+  background: #0088cc;
+  box-shadow: 0 4px 16px rgba(0, 136, 204, 0.3);
+}
+
+.telegram-button:hover {
+  box-shadow: 0 8px 24px rgba(0, 136, 204, 0.4);
+  background: #006ba3;
+}
+
+.telegram-button.personal {
+  background: #229ed9;
+  box-shadow: 0 4px 16px rgba(34, 158, 217, 0.3);
+}
+
+.telegram-button.personal:hover {
+  box-shadow: 0 8px 24px rgba(34, 158, 217, 0.4);
+  background: #1a7db0;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
 }
 
 .button-subtitle {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 400;
   opacity: 0.9;
 }
@@ -213,9 +265,17 @@ const cards = [
     max-width: 400px;
   }
 
-  .twitch-button {
-    padding: 16px 40px;
-    font-size: 1.125rem;
+  .social-links {
+    gap: 12px;
+  }
+
+  .social-button {
+    padding: 14px 24px;
+    font-size: 0.9rem;
+  }
+
+  .button-subtitle {
+    font-size: 0.7rem;
   }
 }
 </style>
